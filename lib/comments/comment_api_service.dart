@@ -9,8 +9,8 @@ class CommentApiService {
           CommentsApiConstants.CommentsApiUrl);
       var response = await http.get(url);
       if (response.statusCode == 200) {
-        List<CommentDataModel> commentDataModelList =
-            commentDataModelFromJson(response.body);
+        List<CommentDataModel>? commentDataModelList =
+            CommentDataModel.fromJson(response.body) as List<CommentDataModel>?;
         return commentDataModelList;
       }
     } catch (e) {

@@ -10,7 +10,7 @@ class PhotosApiService {
       var response = await http.get(url);
       if (response.statusCode == 200) {
         List<PhotosDataModel> photosDataModelList =
-            photosDataModelFromJson(response.body);
+            PhotosDataModel.fromJson(response.body) as List<PhotosDataModel>;
         return photosDataModelList;
       }
     } catch (e) {

@@ -10,7 +10,8 @@ class AlbumsApiService {
       var response = await http.get(url);
       if (response.statusCode == 200) {
         List<AlbumsDataModel> albumsDataModelList =
-            albumsDataModelFromJson(response.body);
+            AlbumsDataModel.fromMap(response.body as Map<String, dynamic>)
+                as List<AlbumsDataModel>;
 
         return albumsDataModelList;
       }
